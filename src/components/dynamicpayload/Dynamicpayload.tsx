@@ -1,12 +1,12 @@
 type ComparisonOperator = '=' | '<' | '>' | '<=' | '>=' | 'in' | 'contains';
 
-interface Filter {
+export interface Filter {
   field: string;
   value: any;
   datatype: string; 
 }
 
-function generateFilterPayload(filters: Filter[]): any {
+export function generateFilterPayload(filters: Filter[]): any {
   const payload: any = {};
 
   filters.forEach(filter => {
@@ -43,7 +43,7 @@ function generateFilterPayload(filters: Filter[]): any {
 }
 
 // Example usage:
-const filters: Filter[] = [
+export const filters: Filter[] = [
   { field: 'age', value: '>=30', datatype: 'number' },
   { field: 'name', value: 'John&Doe', datatype: 'string' },
   { field: 'city', value: 'New York,Los Angeles', datatype: 'string' }
@@ -51,3 +51,5 @@ const filters: Filter[] = [
 
 const payload = generateFilterPayload(filters);
 console.log(payload);
+
+
